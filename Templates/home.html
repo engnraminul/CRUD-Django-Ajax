@@ -17,25 +17,26 @@
         <div class="row">
             <div class="col-6 col-md-4">
                 <h3 class="text-center">Crud Form</h3>
-                <form>
+                <form method="POST">
+                  {% csrf_token %}
                     <div class="mb-3">
                         <label for="name" class="form-label">Name</label>
-                        <input type="text" class="form-control" id="name" placeholder="Your Name">
+                        <input type="text" name="name" class="form-control" id="name" placeholder="Your Name">
                       </div>
 
                     <div class="mb-3">
                       <label for="email" class="form-label">Email address</label>
-                      <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Your Email Address">
+                      <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Your Email Address">
                     </div>
 
                     <div class="mb-3">
                       <label for="phoneNumber" class="form-label">Phone Number</label>
-                      <input type="text" class="form-control" id="phone" placeholder="Your Phone Number">
+                      <input type="text" name="phone" class="form-control" id="phone" placeholder="Your Phone Number">
                     </div>
 
                     <div class="mb-3">
                         <label for="city" class="form-label">City</label>
-                        <input type="text" class="form-control" id="city" placeholder="Your City">
+                        <input type="text" name="city" class="form-control" id="city" placeholder="Your City">
                     </div>
                    
                     <button type="submit" class="btn btn-primary">Submit</button>
