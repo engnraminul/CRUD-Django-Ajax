@@ -40,7 +40,13 @@ def Home(request):
             "users": user
         }
 
-        return JsonResponse(data)
+        #return JsonResponse(data)
 
+    Cruddata = Crud.objects.all().order_by('id')
     
-    return render(request, 'home.html')
+    context = {
+        'data': Cruddata
+    }
+
+
+    return render(request, 'home.html', context)

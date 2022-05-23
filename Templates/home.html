@@ -45,7 +45,7 @@
             </div>
             <div class="col-6 col-md-8">
                 <h3 class="text-center">Crud Result Table</h3>
-                <table class="table table-hover">
+                <table class="table table-hover" id="usertable">
                     <thead>
                       <tr>
                         <th scope="col">Id</th>
@@ -56,14 +56,17 @@
                       </tr>
                     </thead>
                     <tbody>
+                      {% if data %}
+                      {% for data in data %}
                       <tr>
-                        <th scope="row">1</th>
-                        <td>AMINUL ISLAM</td>
-                        <td>aminul3065@gmail.com</td>
-                        <td>01744773065</td>
-                        <td>Rajshahi</td>
+                        <th scope="row">{{data.id}}</th>
+                        <td>{{data.name}}</td>
+                        <td>{{data.email}}</td>
+                        <td>{{data.phone}}</td>
+                        <td>{{data.city}}</td>
                       </tr>
-                      
+                      {% endfor %}
+                      {% endif %}
                     </tbody>
                   </table>
             </div>
@@ -94,7 +97,9 @@
           },
           dataType: 'json',
           success: function(data) {
-            console.log(data)
+            if (data.users){
+              ShowUserData(data.users)
+            }
           }
         })
         
@@ -104,6 +109,19 @@
       }
       
     })
+
+    function ShowUserData(userdata){
+      $("#usertable>tbody:last child").append(
+        <tr>
+                        <th scope="row">${userdata.id}</th>
+                        <td>${userdata.name}</td>
+                        <td>${userdata.email}</td>
+                        <td>${userdata.phone}</td>
+                        <td>${userdata.city}</td>
+                      </tr>
+      )
+    }
+
 </script>
 
 
