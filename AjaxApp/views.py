@@ -1,8 +1,9 @@
 from django.shortcuts import render
+from django.urls import reverse_lazy
 
 
 
-from django.views.generic import ListView, View
+from django.views.generic import ListView, View, DeleteView
 
 from AjaxApp.models import Crud
 from django.http import JsonResponse
@@ -50,3 +51,10 @@ def Home(request):
 
 
     return render(request, 'home.html', context)
+
+
+
+class DeleteInfo(DeleteView):
+    model = Crud
+    template_name = 'delete.html'
+    success_url = reverse_lazy("AjaxApp:home")

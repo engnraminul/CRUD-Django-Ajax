@@ -45,38 +45,15 @@
 
             </div>
             <div class="col-6 col-md-8">
-                <h3 class="text-center">Crud Result Table</h3>
-                <table class="table table-hover" id="usertable">
-                    <thead>
-                      <tr>
-                        <th scope="col">Id</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Phone</th>
-                        <th scope="col">City</th>
-                        <th scope="col">Action</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {% if data %}
-                      {% for data in data %}
-                      <tr id="user__info_{{data.id}}">
-                        <th scope="row" class="user_id">{{data.id}}</th>
-                        <td class="user_name">{{data.name}}</td>
-                        <td class="user_email">{{data.email}}</td>
-                        <td class="user_phone">{{data.phone}}</td>
-                        <td class="city">{{data.city}}</td>
-                        <td><button type="button" class="btn btn-primary" onclick="userinfo_update({{data.id}})" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                          Update
-                        </button>
-                        <td><a type="button" class="btn btn-warning" href="{% url 'AjaxApp:delete' pk=data.id %}">Delete</a>
-                       
-                      </td>
-                      </tr>
-                      {% endfor %}
-                      {% endif %}
-                    </tbody>
-                  </table>
+                <h3 class="text-center">Crud Info Delete</h3>
+                <div class="text-center">
+                <form method="POST">
+                  {% csrf_token %}
+                  <input type="submit" name="submit" value="Delete" class="btn btn-danger">
+                  
+                  <a class="btn btn-info" href="{% url 'AjaxApp:home' %}">Cancel</a>
+                  </form>
+                </div>
             </div>
 
         </div>
