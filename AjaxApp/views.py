@@ -33,15 +33,15 @@ def Home(request):
         obj=Crud(name=name, email=email, phone=phone, city=city)
         obj.save()
 
-        user = {
-            "id": obj.id, "name": obj.name, "email": obj.email, "phone":obj.phone, "city": obj.city
-        }
+        # user = {
+        #     "id": obj.id, "name": obj.name, "email": obj.email, "phone":obj.phone, "city": obj.city
+        # }
 
-        data = { 
-            "users": user
-        }
+        # data = { 
+        #     "users": user
+        # }
 
-        #return JsonResponse(data)
+        # #return JsonResponse(data)
 
     Cruddata = Crud.objects.all().order_by('id')
     

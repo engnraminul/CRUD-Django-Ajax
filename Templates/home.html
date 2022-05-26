@@ -12,12 +12,13 @@
   </head>
   <body>
 
-    <h1 class="text-center p-5" >This is Crud operation app with using Ajax</h1>
+    <h1 class="text-center p-5 bg-success text-white fw-bolder" >Crud operation app with using Ajax</h1>
 
     <div class="container">
         <div class="row">
-            <div class="col-6 col-md-4">
-                <h3 class="text-center">Crud Form</h3>
+            <div class="col-6 col-md-4 col-sm-12 bg-info">
+                <h3 class="text-center fw-bold">Crud Form</h3>
+                <div>
                 <form method="POST" id="CrudForm">
                   {% csrf_token %}
                     <div class="mb-3">
@@ -42,13 +43,13 @@
                    
                     <button type="submit" class="btn btn-primary">Submit</button>
                   </form>
-
+                </div>
             </div>
-            <div class="col-6 col-md-8">
-                <h3 class="text-center">Crud Result Table</h3>
+            <div class="col-6 col-md-8 col-sm-12">
+                <h3 class="text-center text-decoration-underline fw-bold">Crud Result Table</h3>
                 <table class="table table-hover" id="usertable">
                     <thead>
-                      <tr>
+                      <tr class="bg-success text-white">
                         <th scope="col">Id</th>
                         <th scope="col">Name</th>
                         <th scope="col">Email</th>
@@ -57,7 +58,7 @@
                         <th scope="col">Action</th>
                       </tr>
                     </thead>
-                    <tbody>
+                    <tbody class="bg-light">
                       {% if data %}
                       {% for data in data %}
                       <tr id="user__info_{{data.id}}">
@@ -69,7 +70,7 @@
                         <td><button type="button" class="btn btn-primary" onclick="userinfo_update({{data.id}})" data-bs-toggle="modal" data-bs-target="#exampleModal">
                           Update
                         </button>
-                        <td><a type="button" class="btn btn-warning" href="{% url 'AjaxApp:delete' pk=data.id %}">Delete</a>
+                        <a type="button" class="btn btn-warning" href="{% url 'AjaxApp:delete' pk=data.id %}">Delete</a>
                        
                       </td>
                       </tr>
