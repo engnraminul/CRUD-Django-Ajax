@@ -67,10 +67,10 @@
                         <td class="user_email">{{data.email}}</td>
                         <td class="user_phone">{{data.phone}}</td>
                         <td class="city">{{data.city}}</td>
-                        <td><button type="button" class="btn btn-primary" onclick="userinfo_update({{data.id}})" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        <td><button type="button" class="btn btn-primary btn-sm" onclick="userinfo_update({{data.id}})" data-bs-toggle="modal" data-bs-target="#exampleModal">
                           Update
                         </button>
-                        <a type="button" class="btn btn-warning" href="{% url 'AjaxApp:delete' pk=data.id %}">Delete</a>
+                        <a type="button" class="btn btn-danger btn-sm" href="{% url 'AjaxApp:delete' pk=data.id %}">Delete</a>
                        
                       </td>
                       </tr>
